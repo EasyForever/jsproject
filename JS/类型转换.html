@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS 类型转换</title>
+</head>
+<body>
+<div>
+    <h2>js五种数据类型</h2>
+    <ul>
+        <li>string</li>
+        <li>number</li>
+        <li>boolean</li>
+        <li>object</li>
+        <li>function</li>
+    </ul>
+    <h2>三种对象类型</h2>
+    <ul>
+        <li>Object</li>
+        <li>Date</li>
+        <li>Array</li>
+    </ul>
+    <h2>两个不包含值的数据类型</h2>
+    <ul>
+        <li>null</li>
+        <li>undefined</li>
+    </ul>
+</div>
+<p id="demo"></p>
+<script>
+    document.getElementById("demo").innerHTML =
+        /*typeof "john" + "<br>" +
+        typeof 3.14 + "<br>" +*/
+        typeof NaN + "<br>" +
+        // typeof false + "<br>" +
+        typeof [1,2,3,4] + "<br>" +
+        // typeof {name:'john', age:34} + "<br>" +
+        typeof new Date() + "<br>" +
+        typeof function () {} + "<br>" +
+        typeof myCar + "<br>" +
+        typeof null;
+</script>
+
+<p> constructor 属性返回变量或对象的构造函数。</p>
+<p id="demo2"></p>
+<script>
+    document.getElementById("demo2").innerHTML =
+        "john".constructor + "<br>" +
+        (3.14).constructor + "<br>" +
+        false.constructor + "<br>" +
+        [1,2,3,4].constructor + "<br>" +
+        {name:'john', age:34}.constructor + "<br>" +
+        new Date().constructor + "<br>" +
+        function () {}.constructor;
+</script>
+
+<p>判断对象是否为数组</p>
+<p id="demo3"></p>
+<script>
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];
+    document.getElementById("demo3").innerHTML = isArray(fruits);
+    function isArray(myArray) {
+        var x = myArray.constructor.toString();
+        var y = myArray.constructor;
+        console.log(y);
+        console.log(x);
+        // return y.indexOf("Array");
+        return x.indexOf("Array") >= 0;
+    }
+</script>
+
+<p>判断是否为日期。</p>
+<p id="demo4"></p>
+<script>
+    var myDate = new Date();
+    document.getElementById("demo4").innerHTML = isDate(myDate);
+    console.log(myDate.constructor)
+    function isDate(myDate) {
+        return myDate.constructor.toString().indexOf("Date") > -1;
+    }
+</script>
+
+<script>
+    var date = new Date();
+    document.write(String(date.getTime()) + "<br>");
+    document.write(date.getTime() + "<br>");
+    var myString = "123.5";
+    document.write(Number(myString) + "<br>");
+    document.write(parseInt(myString) + "<br>");
+    document.write(parseFloat(myString) + "<br>");
+</script>
+
+<p> typeof 操作符返回变量或表达式的类型。</p>
+<button onclick="myFunction()">点我</button>
+<p id="demo5"></p>
+<script>
+    function myFunction() {
+        var z = +"John";
+        var y = "5";
+        var x = + y;
+        document.getElementById("demo5").innerHTML =
+            z.valueOf() + "<br>" +
+            typeof z + "<br>" +
+            typeof y + "<br>" +
+            typeof x;
+    }
+</script>
+</body>
+</html>

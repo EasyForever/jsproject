@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS function</title>
+</head>
+<body>
+<p>本函数执行一个计算然后返回结果</p>
+<p id="demo"></p>
+<script>
+    function myFunction(name, job) {
+        alert("Welcome " + name + ", the " + job);
+    }
+
+    function myFunction2(a, b) {
+        return a*b;
+    }
+    document.getElementById("demo").innerHTML = myFunction2(4, 3);
+</script>
+<p>点击这个按钮，来调用单参数的函数。</p>
+<button onclick="myFunction('Harry Potter', 'Wizard')">点击这里</button>
+</body>
+</html>

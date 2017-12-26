@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js 错误</title>
+</head>
+<body>
+<p>请输入一个0到100之间的数字</p>
+<input type="text" id="demo">
+<button type="button" onclick="myFunction()">验证输入</button>
+<p id="message"></p>
+
+<script>
+    function myFunction() {
+        var message, x;
+        message = document.getElementById("message");
+        message.innerHTML = "";
+        x = document.getElementById("demo").value;
+        try {
+            if (x == "") throw "值为空";
+            if (isNaN(x)) throw "不是数字";
+            if (x < 0) throw "太小";
+            if (x > 100) throw "太大";
+            if (x >= 0 || x <= 100) {
+                document.getElementById("message").innerHTML = "你输入的是：" + x;
+            }
+        }catch (err){
+            message.innerText = "错误：" + err;
+        }
+    }
+</script>
+</body>
+</html>

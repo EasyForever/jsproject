@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js regexp</title>
+</head>
+<body>
+<p>替换 "microsoft" 为 "Runoob" :</p>
+<button onclick="myFunction()">点我</button>
+<p id="demo">请访问 Microsoft!</p>
+<SCRIPT>
+    function myFunction() {
+        var str = document.getElementById("demo").innerHTML;
+        var txt = str.replace(/Microsoft/i, "Ruboob");
+        document.getElementById("demo").innerHTML = txt;
+    }
+</SCRIPT>
+</body>
+</html>

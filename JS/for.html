@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS for循环</title>
+</head>
+<body>
+<p>点击下面的按钮，循环遍历对象 "person" 的属性。</p>
+<button onclick="myFunction()">点击这里</button>
+<p id="demo"></p>
+<script>
+    cars=["BMW","Volvo","Saab","Ford"];
+    var i = 0;
+    var person={fname:"Bill",lname:"Gates",age:56};
+
+    for (; i<cars.length;){
+        document.write(cars[i] + "<br>")
+        i = i + 2;
+    }
+
+    function myFunction() {
+        var txt = "";
+        for (var item in  person){
+            txt = txt + person[item] + " ";
+        }
+        document.getElementById("demo").innerHTML = txt;
+    }
+
+</script>
+</body>
+</html>
