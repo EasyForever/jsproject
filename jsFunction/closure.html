@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>closure</title>
+</head>
+<body>
+<button onclick="myFunction()">click</button>
+<p id="addOneS"></p>
+<script>
+    var tempFunc;
+    var add = (function () {
+        var counter = 0;
+        tempFunc = function () { return counter += 1; }
+        return tempFunc
+    })();
+    function myFunction() {
+        console.log("add === tempFunc : " + (add === tempFunc))
+        document.getElementById("addOneS").innerHTML = add();
+    }
+</script>
+</body>
+</html>

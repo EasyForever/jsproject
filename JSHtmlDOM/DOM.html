@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>改变CSS</title>
+
+    <style>
+        .redDiv {
+            display: flex;
+            display: -webkit-flex;/*Safari*/
+            justify-content: center;
+            align-items: center;
+            width: 200px;
+            height: 120px;
+            background-color: red;
+            margin-top: 20px;
+        }
+
+        #myDiv,
+        #myDiv2{
+            background-color: coral;
+            border: 1px solid;
+            padding: 50px;
+        }
+    </style>
+</head>
+<body>
+<p id="p1">Hello World!</p>
+<p id="p2">Hello World!</p>
+
+<script>
+    document.getElementById("p1").style.color = "blue";
+    document.getElementById("p2").style.fontFamily = "Arial";
+    document.getElementById("p2").style.fontSize = "Larger";
+</script>
+
+<p>以上文字样式通过js修改</p>
+
+<p>点击按钮执行<em>displayDate()</em>函数</p>
+<button id="btn">点这里</button>
+<script>
+    function displayDate() {
+        var date = new Date();
+        var p3 = document.getElementById("p3");
+        p3.innerHTML = date;
+    }
+    document.getElementById("btn").onclick = displayDate;
+</script>
+<p id="p3"></p>
+
+<div>
+    <span>输入你的名字的拼音</span>
+    <input type="text" id="name" onchange="upperCase()">
+
+    <script>
+        function upperCase() {
+            var name = document.getElementById("name");
+            name.value = name.value.toUpperCase();
+        }
+    </script>
+</div>
+
+<div class="redDiv" id="redDiv" onmouseover="mouseOver(this)" onmouseout="mouseOut(this)" >Mouse over here</div>
+<script>
+    function mouseOver(div) {
+        div.innerHTML = "Thank you";
+    }
+
+    function mouseOut(div) {
+        div.innerHTML = "Welcome back";
+    }
+
+    var redDiv = document.getElementById("redDiv");
+    // redDiv.onmousedown = function(){mouseDown(this);}
+    redDiv.addEventListener("mousedown",function () {
+        mouseDown(this);
+    });
+    function mouseDown(div) {
+        div.style.backgroundColor = "blue";
+        div.innerHTML = "release me";
+    }
+</script>
+
+<p>实例演示了在添加不同事件监听时，冒泡与捕获的不同。</p>
+<div id="myDiv">
+    <p id="myP">点击段落，我是冒泡。</p>
+</div><br>
+<div id="myDiv2">
+    <p id="myP2">点击段落，我是捕获。 </p>
+</div>
+<button onclick="removeHandler()" id="myBtn">点我</button>
+<script>
+    document.getElementById("myP").addEventListener("click", function() {
+        alert("你点击了 P 元素!");
+    });
+    document.getElementById("myDiv").addEventListener("click", myAlert);
+    function myAlert() {
+        alert(" 你点击了 DIV 元素 !");
+    }
+    document.getElementById("myP2").addEventListener("click", function() {
+        alert("你点击了 P2 元素!");
+    }, true);
+    document.getElementById("myDiv2").addEventListener("click", function() {
+        alert("你点击了 DIV2 元素 !");
+    }, true);
+
+    function removeHandler() {
+        document.getElementById("myDiv").removeEventListener("click", myAlert);
+    }
+</script>
+</body>
+</html>

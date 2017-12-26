@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js function param</title>
+</head>
+<body>
+<p>查找最大的数</p>
+<p id="demo"></p>
+<script>
+    var x = findMax(5563,1,532,213,63,63,2,921);
+
+    function findMax() {
+        var i, max;
+        max = arguments[0];
+        for (i = 0; i < arguments.length; i++){
+            if (arguments[i] >= max){
+                max = arguments[i];
+            }
+        }
+        return max;
+    }
+
+    document.getElementById("demo").innerHTML = x;
+</script>
+</body>
+</html>

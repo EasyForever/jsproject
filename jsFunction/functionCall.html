@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js function call</title>
+</head>
+<body>
+<p id="demo"></p>
+
+<script>
+    var obj;
+    function myFunction(a, b) {
+        // console.log(this);
+        return a*b;
+    }
+    obj = myFunction.call(obj, 5, 5);
+    document.getElementById("demo").innerHTML = obj;
+</script>
+</body>
+</html>
